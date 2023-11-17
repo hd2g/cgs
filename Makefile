@@ -1,5 +1,5 @@
 CC := racket -I typed/racket
-ENTRY := cgs-backend/cgs/base.rkt
+ENTRY := cgs-lib/cgs/base.rkt
 
 .PHONY: all dev
 
