@@ -2,10 +2,17 @@
 
 (provide (all-defined-out))
 
+(require (only-in racket/match match))
+
 (require typed/racket/date)
 (define-type Date date)
 
 (define-type Contents (Listof String))
+
+(: contents? (-> Any Boolean : Contents))
+(define (contents? value)
+  (match value
+    [(list (? string?)) #t]))
 
 (define-type Nickname String)
 
