@@ -33,6 +33,14 @@
          (author id nickname accounts)
          (error 'invalid-propety))]))
 
+(: json->postit-tags (-> JSExpr Tags))
+(define (json->postit-tags obj)
+  (match obj
+    [(hash-table ('tags tags))
+     (if (tags? tags)
+         tags
+         (error 'invalid-property))]))
+
 (: json->postit (-> JSExpr Postit))
 (define (json->postit obj)
   (error 'undefined))
