@@ -35,12 +35,8 @@
 
 (define-type ID String)
 
-(struct assigned-project
-  ([id : ID])
-  #:type-name Assigned-Project
 (: id? (-> Any Boolean : ID))
 (define id? string?)
-  #:transparent)
 
 (struct Author
   ([nickname : Nickname]
