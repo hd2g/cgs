@@ -54,6 +54,11 @@
 
 (define-type Tags (Listof Tag))
 
+(: tags? (-> Any Boolean : Tags))
+(define (tags? value)
+	(match value
+		[(list (? tag?)) #t]))
+
 (struct postit
   ([contents : Contents]
    [timestamp : Date]
