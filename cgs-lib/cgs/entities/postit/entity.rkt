@@ -38,10 +38,12 @@
 (: id? (-> Any Boolean : ID))
 (define id? string?)
 
-(struct Author
-  ([nickname : Nickname]
-   [accounts : Accounts]
-   [assigned-project : Assigned-Project]))
+(struct author
+  ([id : ID]
+   [nickname : Nickname]
+   [accounts : Accounts])
+  #:type-name Author
+  #:transparent)
 
 (define-type Name String)
 
