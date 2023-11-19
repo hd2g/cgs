@@ -27,7 +27,11 @@
 
 (: json->postit-author (-> JSExpr Author))
 (define (json->postit-author obj)
-  (error 'undefined))
+  (match obj
+    [(hash-table ('id id) ('nickname nickname) ('accounts accounts))
+     (if (and (id? id) (nickname? nickname) (accounts? accounts))
+         (author id nickname accounts)
+         (error 'invalid-propety))]))
 
 (: json->postit (-> JSExpr Postit))
 (define (json->postit obj)
