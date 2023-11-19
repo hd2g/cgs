@@ -56,8 +56,13 @@
 
 (: tags? (-> Any Boolean : Tags))
 (define (tags? value)
-	(match value
-		[(list (? tag?)) #t]))
+  (match value
+    [(list (? tag?)) #t]))
+
+(define-type Timestamp Date)
+
+(: timestamp? (-> Any Boolean : Timestamp))
+(define timestamp? date?)
 
 (struct postit
   ([contents : Contents]
