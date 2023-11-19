@@ -43,4 +43,15 @@
 
 (: json->postit (-> JSExpr Postit))
 (define (json->postit obj)
-  (error 'undefined))
+  (match obj
+    [(hash-table
+       ('contents contents)
+       ('timestamp timestamp)
+       ('author author)
+       ('tags tags))
+     (if (and (contents? contents)
+              (timestamp? timestamp)
+              (author? author)
+              (tags? tags))
+         (postit contents timestamp author tags)
+         (error 'invalid-property))]))
